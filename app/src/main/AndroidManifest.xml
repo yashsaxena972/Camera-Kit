@@ -16,7 +16,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HVCamera">
+        android:theme="@style/Theme.HVCamera"
+        android:requestLegacyExternalStorage="true">
         <activity android:name=".ReviewActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
