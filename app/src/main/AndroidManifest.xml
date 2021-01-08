@@ -18,12 +18,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HVCamera"
         android:requestLegacyExternalStorage="true">
-        <activity android:name=".ReviewActivity">
+        <activity android:name=".ReviewActivity"
+            android:label="Review Image">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:label="Capture Image">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

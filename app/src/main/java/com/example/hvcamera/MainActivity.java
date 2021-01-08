@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         cameraKitView.captureImage(new CameraKitView.ImageCallback() {
             @Override
             public void onImage(CameraKitView cameraKitView, final byte[] capturedImage) {
-                Toast.makeText(MainActivity.this, "Image Captured", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "Image Captured", Toast.LENGTH_SHORT).show();
                     File pictureFileDir = new File(getCacheDir()+File.separator+"images");
                     Log.d("path",""+pictureFileDir);
 
@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
                         FileOutputStream fos = new FileOutputStream(pictureFile);
                         fos.write(capturedImage);
                         fos.close();
-                        Toast.makeText(MainActivity.this, "New Image saved:" + photoFile,
-                                Toast.LENGTH_LONG).show();
+                        //Toast.makeText(MainActivity.this, "New Image saved:" + photoFile,
+                            //    Toast.LENGTH_LONG).show();
                     } catch (Exception error) {
                         Log.d("tag", "File" + filename + "not saved: "
                                 + error.getMessage());
