@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onCaptureClick(View view) {
+        cameraKitView.setSensorPreset(CameraKit.SENSOR_PRESET_LANDSCAPE);
         cameraKitView.captureImage(new CameraKitView.ImageCallback() {
             @Override
             public void onImage(CameraKitView cameraKitView, final byte[] capturedImage) {
