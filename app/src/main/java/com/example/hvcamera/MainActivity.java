@@ -18,6 +18,9 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.camerakit.CameraKit.FLASH_ON;
+import static com.camerakit.CameraKit.FLASH_TORCH;
+
 public class MainActivity extends AppCompatActivity {
 
     private CameraKitView cameraKitView;
@@ -33,6 +36,20 @@ public class MainActivity extends AppCompatActivity {
         flipCameraButton = findViewById(R.id.flip_camera_button);
         captureButton = findViewById(R.id.capture_button);
         toggleFlashButton = findViewById(R.id.toggle_flash_button);
+
+        toggleFlashButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(cameraKitView.getFlash() != FLASH_ON){
+                    cameraKitView.setFlash(FLASH_ON);
+                    toggleFlashButton.setImageResource(R.drawable.ic_flash_off_black_24dp);
+                }
+                else if(cameraKitView.getFlash() == FLASH_ON){
+                    cameraKitView.setFlash(CameraKit.FLASH_OFF);
+                    toggleFlashButton.setImageResource(R.drawable.ic_flash_on_black_24dp);
+                }
+            }
+        });
     }
 
 
@@ -82,17 +99,19 @@ public class MainActivity extends AppCompatActivity {
         cameraKitView.toggleFacing();
     }
 
-    public void onFlashButtonClick(View view){
-        if(flashStatus){
-            cameraKitView.setFlash(CameraKit.FLASH_ON);
-            toggleFlashButton.setImageResource(R.drawable.ic_flash_off_black_24dp);
-        }
-        else{
-            cameraKitView.setFlash(CameraKit.FLASH_OFF);
-            toggleFlashButton.setImageResource(R.drawable.ic_flash_on_black_24dp);
-        }
-        flashStatus = !flashStatus;
-    }
+
+
+//    public void onFlashButtonClick(View view){
+//        if(flashStatus){
+//            cameraKitView.setFlash(CameraKit.FLASH_ON);
+//            toggleFlashButton.setImageResource(R.drawable.ic_flash_off_black_24dp);
+//        }
+//        else{
+//            cameraKitView.setFlash(CameraKit.FLASH_OFF);
+//            toggleFlashButton.setImageResource(R.drawable.ic_flash_on_black_24dp);
+//        }
+//        flashStatus = !flashStatus;
+//    }
 
     @Override
     protected void onStart() {
