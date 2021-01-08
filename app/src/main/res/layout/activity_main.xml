@@ -59,6 +59,7 @@
                 android:layout_gravity="bottom">
 
                 <ImageButton
+                    android:id="@+id/flip_camera_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#00000000"
@@ -84,6 +85,7 @@
                 app:cardBackgroundColor="@color/white">
 
                 <ImageButton
+                    android:id="@+id/capture_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#00000000"
@@ -109,6 +111,7 @@
                 app:cardBackgroundColor="@color/white">
 
                 <ImageButton
+                    android:id="@+id/toggle_flash_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
