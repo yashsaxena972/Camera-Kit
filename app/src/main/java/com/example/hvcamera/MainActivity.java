@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "New Image saved:" + photoFile,
                                 Toast.LENGTH_LONG).show();
                     } catch (Exception error) {
-                        Log.d("tagg", "File" + filename + "not saved: "
+                        Log.d("tag", "File" + filename + "not saved: "
                                 + error.getMessage());
                         Toast.makeText(MainActivity.this, "Image could not be saved.",
                                 Toast.LENGTH_LONG).show();
