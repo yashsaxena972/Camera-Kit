@@ -41,27 +41,27 @@ public class MainActivity extends AppCompatActivity {
         cameraKitView.captureImage(new CameraKitView.ImageCallback() {
             @Override
             public void onImage(CameraKitView cameraKitView, final byte[] capturedImage) {
-                //Toast.makeText(MainActivity.this, "Image Captured", Toast.LENGTH_SHORT).show();
-                    File pictureFileDir = new File(getCacheDir()+File.separator+"images");
-                    Log.d("path",""+pictureFileDir);
+//                Toast.makeText(MainActivity.this, "Image Captured", Toast.LENGTH_SHORT).show();
+                File pictureFileDir = new File(getCacheDir()+File.separator+"images");
+                Log.d("path",""+pictureFileDir);
 
                 pictureFileDir.mkdirs();
 
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmddhhmmss");
-                    String date = dateFormat.format(new Date());
-                    String photoFile = "Picture_" + date + ".jpg";
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmddhhmmss");
+                String date = dateFormat.format(new Date());
+                String photoFile = "Picture_" + date + ".jpg";
 
-                    String filename = pictureFileDir.getPath() + File.separator + photoFile;
+                String filename = pictureFileDir.getPath() + File.separator + photoFile;
 
-                    File pictureFile = new File(filename);
+                File pictureFile = new File(filename);
                 Log.d("path",""+pictureFileDir);
 
                 try {
                         FileOutputStream fos = new FileOutputStream(pictureFile);
                         fos.write(capturedImage);
                         fos.close();
-                        //Toast.makeText(MainActivity.this, "New Image saved:" + photoFile,
-                            //    Toast.LENGTH_LONG).show();
+    //                        Toast.makeText(MainActivity.this, "New Image saved:" + photoFile,
+    //                                Toast.LENGTH_LONG).show();
                     } catch (Exception error) {
                         Log.d("tag", "File" + filename + "not saved: "
                                 + error.getMessage());

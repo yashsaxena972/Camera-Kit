@@ -61,7 +61,7 @@
                     android:onClick="onFlipCamera"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#00000000"
+                    android:background="@color/buttonColor"
                     android:src="@drawable/ic_flip_camera_black"/>
 
             </androidx.cardview.widget.CardView>
@@ -88,7 +88,7 @@
                     android:onClick="onCaptureClick"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#00000000"
+                    android:background="@color/buttonColor"
                     android:src="@drawable/ic_photo_camera_black"/>
 
             </androidx.cardview.widget.CardView>
@@ -115,7 +115,7 @@
                     android:onClick="onFlashButtonClick"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@null"
+                    android:background="@color/buttonColor"
                     android:src="@drawable/ic_flash_on_black_24dp"/>
 
             </androidx.cardview.widget.CardView>
