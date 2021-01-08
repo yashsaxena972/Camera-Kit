@@ -1,13 +1,19 @@
 package com.example.hvcamera;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.camerakit.CameraKit;
 import com.camerakit.CameraKitView;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,20 +31,39 @@ public class MainActivity extends AppCompatActivity {
         captureButton = findViewById(R.id.capture_button);
         toggleFlashButton = findViewById(R.id.toggle_flash_button);
     }
+
     public void onCaptureClick(View view) {
         cameraKitView.captureImage(new CameraKitView.ImageCallback() {
             @Override
             public void onImage(CameraKitView cameraKitView, final byte[] capturedImage) {
                 Toast.makeText(MainActivity.this, "Image Captured", Toast.LENGTH_SHORT).show();
-                /*File savedPhoto = new File(Environment.getExternalStorageDirectory(), "photo.jpg");
+//                File savedPhoto = new File(Environment.getExternalStorageDirectory(), "photo.jpg");
+//                try {
+//                    FileOutputStream outputStream = new FileOutputStream(savedPhoto.getPath());
+//                    outputStream.write(capturedImage);
+//                    outputStream.close();
+//                } catch (java.io.IOException e) {
+//                    e.printStackTrace();
+//                }
+
+                File file = new File(Environment.getExternalStorageDirectory(), "photo.jpg");
+
                 try {
-                    FileOutputStream outputStream = new FileOutputStream(savedPhoto.getPath());
-                    outputStream.write(capturedImage);
-                    outputStream.close();
-                } catch (java.io.IOException e) {
+                    FileOutputStream out = new FileOutputStream(file.getPath());
+                    out.write(capturedImage);
+                    out.close();
+
+                } catch (Exception e) {
                     e.printStackTrace();
-                }*/
+                }
+
+                Intent intent = new Intent(MainActivity.this, ReviewActivity.class);
+                intent.putExtra("imagePath", file.getPath());
+                startActivity(intent);
+
             }
+
+
         });
     }
 
@@ -47,13 +72,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onFlashButtonClick(View view){
-        /*if(flashStatus){
+        if(flashStatus){
             cameraKitView.setFlash(CameraKit.FLASH_ON);
+            toggleFlashButton.setImageResource(R.drawable.ic_flash_off_black_24dp);
         }
         else{
             cameraKitView.setFlash(CameraKit.FLASH_OFF);
+            toggleFlashButton.setImageResource(R.drawable.ic_flash_on_black_24dp);
         }
-        flashStatus = !flashStatus;*/
+        flashStatus = !flashStatus;
     }
 
     @Override
